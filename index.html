@@ -1,1 +1,100 @@
-<h1>git hub pagina</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Notas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .media-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .media-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .media-btn img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+        
+        .note-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 10px;
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .save-btn:hover {
+            background: #3367d6;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Mis Notas</h1>
+        
+        <div class="note-form">
+            <input type="text" id="noteTitle" placeholder="Título" required>
+            <textarea id="noteContent" placeholder="Contenido" required></textarea>
+            
+            <div class="media-buttons">
+                <button class="media-btn" data-type="camera" onclick="takePicture()">
+                    <span style="margin-right: 8px;">📸</span> Cámara
+                </button>
+                <button class="media-btn" data-type="audio" onclick="recordAudio()">
+                    <span style="margin-right: 8px;">🎤</span> Audio
+                </button>
+                <button class="media-btn" data-type="location" onclick="getLocation()">
+                    <span style="margin-right: 8px;">📍</span> Ubicación
+                </button>
+            </div>
+
+            <button class="save-btn" onclick="saveNote()">Guardar Nota</button>
+        </div>
+
+        <div id="notesList"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
